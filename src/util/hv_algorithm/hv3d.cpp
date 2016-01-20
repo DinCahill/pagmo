@@ -105,7 +105,7 @@ double hv3d::compute(std::vector<fitness_vector> &points, const fitness_vector &
 }
 
 /// Comparator method for hycon3d algorithm's tree structure
-bool hv3d::hycon3d_tree_cmp::operator()(const std::pair<fitness_vector, int> &a, const std::pair<fitness_vector, int> &b)
+bool hv3d::hycon3d_tree_cmp::operator()(const std::pair<fitness_vector, int> &a, const std::pair<fitness_vector, int> &b) const
 {
 	return a.first[0] > b.first[0];
 }

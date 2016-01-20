@@ -78,7 +78,7 @@ private:
 
 	struct hycon3d_tree_cmp
 	{
-		bool operator()(const std::pair<fitness_vector, int> &, const std::pair<fitness_vector, int> &);
+		bool operator()(const std::pair<fitness_vector, int> &, const std::pair<fitness_vector, int> &) const;
 	};
 
 	static bool hycon3d_sort_cmp(const std::pair<fitness_vector, unsigned int> &, const std::pair<fitness_vector, unsigned int> &);

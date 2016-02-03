@@ -65,6 +65,12 @@ base_ptr inverover::clone() const
 }
 
 
+template<typename T>
+T abs_diff(T a, T b) {
+       return a > b ? a - b : b - a;
+}
+
+
 /// Evolve implementation.
 /**
  * Runs the Inverover algorithm for the number of generations specified in the constructor.
@@ -223,7 +229,7 @@ void inverover::evolve(population &pop) const
 					pos2_c2 = (pos2_c1 == Nv-1? 0:pos2_c1+1);
 					pos1_c2 = std::find(tmp_tour.begin(),tmp_tour.end(),my_pop[i2][pos2_c2])-tmp_tour.begin();
 				}
-				stop = (abs(pos1_c1-pos1_c2)==1 || static_cast<problem::base::size_type>(abs(pos1_c1-pos1_c2))==Nv-1);
+				stop = (abs_diff<size_t>(pos1_c1,pos1_c2)==1 || abs_diff<size_t>(pos1_c1,pos1_c2)==Nv-1);
 				if(!stop) {
 					changed = true;
 					if(pos1_c1<pos1_c2) {

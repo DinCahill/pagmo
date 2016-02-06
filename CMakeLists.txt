@@ -188,8 +188,8 @@ ELSE(UNIX)
 		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mthreads")
 	ENDIF(MINGW)
 	IF(MSVC)
-		#This flags are necessary for MSVC requires boost libs to be named in a stupid way. (i.e. without lib in front)
-		ADD_DEFINITIONS(-DBOOST_ALL_DYN_LINK)
+		#Use CMake to link boost instead of Boost auto-linking
+		ADD_DEFINITIONS(-DBOOST_ALL_NO_LIB)
 		#This flag is necesary for MSVC to access mathematical constants such as M_PI,...
 		ADD_DEFINITIONS(-D_USE_MATH_DEFINES)
 		#This is necessary to add Additional Library Directories in the linker path of MSVC
